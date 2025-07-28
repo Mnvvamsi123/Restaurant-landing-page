@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Fine Dine</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #fff8f0;
+      padding: 15px 30px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #d35400;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .nav-links li a.active,
+    .nav-links li a:hover {
+      color: #d35400;
+    }
+
+    .hero {
+      background: url('images/blog-hero.jpg') center/cover no-repeat;
+      height: 60vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+    }
+
+    .blog-section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .blog-post {
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .blog-post h2 {
+      font-size: 1.8rem;
+      color: #d35400;
+      margin-bottom: 10px;
+    }
+
+    .blog-post p.meta {
+      font-size: 0.9rem;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .blog-post p {
+      line-height: 1.6;
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .blog-post h2 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo">Fine Dine</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="menu.html">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Our Blog</h1>
+      <p>Get the latest updates, chef specials, and behind-the-scenes stories from the Fine Dine kitchen.</p>
+    </div>
+  </section>
+
+  <section class="blog-section">
+    <div class="blog-post">
+      <h2>Chef’s Summer Picks: Fresh, Local & Flavorful</h2>
+      <p class="meta">Posted on July 20, 2025 by Chef Arun</p>
+      <p>This season, our chefs have curated a menu bursting with locally sourced ingredients and vibrant summer flavors. Discover our mango chili ceviche and lemon-herb grilled seabass!</p>
+    </div>
+
+    <div class="blog-post">
+      <h2>Behind the Scenes: Our Kitchen Philosophy</h2>
+      <p class="meta">Posted on July 10, 2025 by Fine Dine Team</p>
+      <p>At Fine Dine, every dish tells a story. From sustainable sourcing to handcrafted plating, explore what makes our kitchen tick — and meet the team that brings it all to life.</p>
+    </div>
+
+    <div class="blog-post">
+      <h2>Wine Pairing 101: Elevate Your Meal</h2>
+      <p class="meta">Posted on June 25, 2025 by Sommelier Priya</p>
+      <p>Want to know the perfect wine to go with your seafood platter? Or the best red to complement spicy dishes? Our sommelier shares her expert tips and recommendations.</p>
+    </div>
+  </section>
+
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu | Fine Dine</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    .menu-section {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .menu-item {
+      border: 1px solid #ddd;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      background-color: #fff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .menu-item img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .menu-item h3 {
+      margin: 10px 0 5px;
+    }
+    .menu-item .price {
+      color: #d35400;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .menu-item input {
+      width: 50px;
+      text-align: center;
+      margin-right: 10px;
+    }
+    .order-cart {
+      margin-top: 40px;
+      border-top: 2px solid #ccc;
+      padding-top: 20px;
+    }
+    .cart-items {
+      margin-bottom: 20px;
+    }
+    .btn {
+      padding: 10px 20px;
+      background-color: #d35400;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #e67e22;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">Fine Dine</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="menu.html" class="active">Menu</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="reservation.html">Reservation</a></li>
+      <li><a href="location.html">Location</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section class="menu-section">
+    <h1>Order Your Favorites</h1>
+    <div class="menu-grid">
+      <!-- Example Menu Item -->
+      <div class="menu-item">
+        <img src="https://silkroadrecipes.com/wp-content/uploads/2025/01/Fettuccine-Alfredo-Pasta-No-Cream-square.jpg" alt="Pasta Alfredo">
+        <h3>Pasta Alfredo</h3>
+        <p class="price">₹350</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Pasta Alfredo', 350, this)">Add</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://media.istockphoto.com/id/1254672762/photo/delicious-homemade-hamburger-and-french-fries.jpg?s=612x612&w=0&k=20&c=9BgdcWXRMb8hPZd2049StXFqvhDRq3izLkXK7Cq2C9s=" alt="Cheese Burger">
+        <h3>Cheese Burger</h3>
+        <p class="price">₹220</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Cheese Burger', 220, this)">Add</button>
+      </div>
+
+      <div class="menu-item">
+        <img src="https://www.foodandwine.com/thmb/7BpSJWDh1s-2M2ooRPHoy07apq4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mozzarella-pizza-margherita-FT-RECIPE0621-11fa41ceb1a5465d9036a23da87dd3d4.jpg" alt="Margherita Pizza">
+        <h3>Margherita Pizza</h3>
+        <p class="price">₹450</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Margherita Pizza', 450, this)">Add</button>
+      </div>
+
+    </div>
+
+    <div class="order-cart">
+      <h2>Your Order</h2>
+      <div class="cart-items" id="cart-items"></div>
+      <p><strong>Total: ₹<span id="total">0</span></strong></p>
+      <button class="btn" onclick="placeOrder()">Place Order</button>
+    </div>
+  </section>
+
+  <script>
+    let cart = [];
+    function addToCart(name, price, btn) {
+      const qtyInput = btn.previousElementSibling;
+      const quantity = parseInt(qtyInput.value);
+
+      const existing = cart.find(item => item.name === name);
+      if (existing) {
+        existing.quantity += quantity;
+      } else {
+        cart.push({ name, price, quantity });
+      }
+      renderCart();
+    }
+
+    function renderCart() {
+      const cartContainer = document.getElementById('cart-items');
+      const totalEl = document.getElementById('total');
+      cartContainer.innerHTML = '';
+
+      let total = 0;
+      cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        cartContainer.innerHTML += `
+          <p>${item.name} × ${item.quantity} = ₹${itemTotal}</p>
+        `;
+      });
+
+      totalEl.textContent = total;
+    }
+
+    function placeOrder() {
+      if (cart.length === 0) {
+        alert("Your cart is empty!");
+        return;
+      }
+
+      alert("Thank you! Your order has been placed.");
+      cart = [];
+      renderCart();
+    }
+  </script>
+</body>
+</html>
