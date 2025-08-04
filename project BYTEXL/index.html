@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fine Dine Restaurant</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Full Page Navbar -->
+  <nav class="navbar">
+    <div class="logo">Fine Dine</div>
+    <ul class="nav-links">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reservation">Reservation</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Welcome to Fine Dine</h1>
+      <p>Explore flavors, book your table, and enjoy a great ambiance.</p>
+      <a href="#menu" class="book-btn">Explore Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section class="menu-section" id="menu">
+    <h2>Our Menu</h2>
+    <p>Select your favorites and add them to your order.</p>
+    <div class="menu-grid">
+      <div class="menu-item">
+        <img src="https://silkroadrecipes.com/wp-content/uploads/2025/01/Fettuccine-Alfredo-Pasta-No-Cream-square.jpg" alt="Pasta Alfredo" />
+        <h3>Pasta Alfredo</h3>
+        <p class="price">₹350</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Pasta Alfredo', 350, this)">Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://images.themodernproper.com/production/posts/2016/ClassicCheeseBurger_9.jpg?w=1200&h=1200&q=60&fm=jpg&fit=crop&dm=1749310239&s=463b18fc3bb51dc5d96e866c848527c4" alt="Cheese Burger" />
+        <h3>Cheese Burger</h3>
+        <p class="price">₹220</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Cheese Burger', 220, this)">Add</button>
+      </div>
+      <div class="menu-item">
+        <img src="https://www.foodandwine.com/thmb/7BpSJWDh1s-2M2ooRPHoy07apq4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/mozzarella-pizza-margherita-FT-RECIPE0621-11fa41ceb1a5465d9036a23da87dd3d4.jpg" alt="Margherita Pizza" />
+        <h3>Margherita Pizza</h3>
+        <p class="price">₹450</p>
+        <input type="number" value="1" min="1" class="quantity" />
+        <button class="btn" onclick="addToCart('Margherita Pizza', 450, this)">Add</button>
+      </div>
+    </div>
+
+    <div class="order-cart">
+      <h3>Your Order</h3>
+      <div class="cart-items" id="cart-items"></div>
+      <p><strong>Total: ₹<span id="total">0</span></strong></p>
+      <button class="btn" onclick="placeOrder()">Place Order</button>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section" id="gallery">
+    <h2>Gallery</h2>
+    <p>Experience the ambiance before you visit.</p>
+    <div class="gallery-grid">
+      <img src="https://t3.ftcdn.net/jpg/03/24/73/92/360_F_324739203_keeq8udvv0P2h1MLYJ0GLSlTBagoXS48.jpg" alt="Dining Area" />
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cmVzdGF1cmFudHxlbnwwfHwwfHx8MA%3D%3D" alt="Chef Special Dish" />
+      <img src="https://thumbs.dreamstime.com/b/restaurant-table-setup-cut-flowers-8914373.jpg" alt="Table Setting" />
+      <img src="https://www.touchbistro.com/wp-content/uploads/2021/08/restaurant-interior-design-ideas-thumbnail.jpg" alt="Interior" />
+    </div>
+  </section>
+
+  <!-- Reservation Section -->
+  <section class="reservation-section" id="reservation">
+    <h2>Book a Table</h2>
+    <form class="reservation-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="tel" name="phone" placeholder="Phone Number" required />
+      <input type="date" name="date" required />
+      <input type="time" name="time" required />
+      <select name="guests" required>
+        <option value="" disabled selected>Number of Guests</option>
+        <option>1</option><option>2</option><option>3</option><option>4</option><option>5+</option>
+      </select>
+      <textarea name="message" placeholder="Special Requests"></textarea>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <form class="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer / Social -->
+  <footer class="social-footer">
+    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+    <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+  </footer>
+
+</body>
+</html>
